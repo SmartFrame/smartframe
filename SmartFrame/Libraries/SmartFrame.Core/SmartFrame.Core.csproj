@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>199407a5-3c75-4611-9297-8768f04c3fc4</ProjectGuid>
+    <ProjectGuid>{199407A5-3C75-4611-9297-8768F04C3FC4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SmartFrame.Core</RootNamespace>
@@ -30,25 +30,58 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System"/>
-    
-    <Reference Include="System.Core"/>
-    <Reference Include="System.Xml.Linq"/>
-    <Reference Include="System.Data.DataSetExtensions"/>
-    
-    
-    <Reference Include="Microsoft.CSharp"/>
-    
-    <Reference Include="System.Data"/>
-    
-    <Reference Include="System.Net.Http"/>
-    
-    <Reference Include="System.Xml"/>
+    <Reference Include="Castle.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Castle.Core.3.3.0\lib\net45\Castle.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Castle.Windsor, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Castle.Windsor.3.3.0\lib\net45\Castle.Windsor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="SmartFrameBootstrapper.cs" />
+    <Compile Include="Infrastructure\Collections\Extensions\CollectionExtensions.cs" />
+    <Compile Include="Infrastructure\Collections\Extensions\DictionaryExtensions.cs" />
+    <Compile Include="Infrastructure\Collections\Extensions\EnumerableExtensions.cs" />
+    <Compile Include="Infrastructure\Collections\Extensions\ListExtensions.cs" />
+    <Compile Include="Infrastructure\Collections\ITypeList.cs" />
+    <Compile Include="Infrastructure\Collections\TypeList.cs" />
+    <Compile Include="Infrastructure\Dependency\BasicConventionalRegistrar.cs" />
+    <Compile Include="Infrastructure\Dependency\ConventionalRegistrationConfig.cs" />
+    <Compile Include="Infrastructure\Dependency\ConventionalRegistrationContext.cs" />
+    <Compile Include="Infrastructure\Dependency\DependencyLifeStyle.cs" />
+    <Compile Include="Infrastructure\Dependency\DictionaryBasedConfig.cs" />
+    <Compile Include="Infrastructure\Dependency\DisposableDependencyObjectWrapperOfT.cs" />
+    <Compile Include="Infrastructure\Dependency\IConventionalDependencyRegistrar.cs" />
+    <Compile Include="Infrastructure\Dependency\IConventionalRegistrationContext.cs" />
+    <Compile Include="Infrastructure\Dependency\IDictionaryBasedConfig.cs" />
+    <Compile Include="Infrastructure\Dependency\IDisposableDependencyObjectWrapper.cs" />
+    <Compile Include="Infrastructure\Dependency\IDisposableDependencyObjectWrapperOfT.cs" />
+    <Compile Include="Infrastructure\Dependency\IIocManager.cs" />
+    <Compile Include="Infrastructure\Dependency\IIocRegistrar.cs" />
+    <Compile Include="Infrastructure\Dependency\IIocResolver.cs" />
+    <Compile Include="Infrastructure\Dependency\Installers\SmartFrameCoreInstaller.cs" />
+    <Compile Include="Infrastructure\Dependency\IocManager.cs" />
+    <Compile Include="Infrastructure\Dependency\IocRegistrarExtensions.cs" />
+    <Compile Include="Infrastructure\Dependency\IocResolverExtensions.cs" />
+    <Compile Include="Infrastructure\Dependency\ISingletonDependency.cs" />
+    <Compile Include="Infrastructure\Dependency\ITransientDependency.cs" />
+    <Compile Include="Infrastructure\Dependency\SingletonDependency.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
@@ -57,5 +90,4 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-
- </Project>
+</Project>
