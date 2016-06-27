@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Libraries
+namespace SmartFrame.Core
 {
     public class Class1
     {
-        public string Name { get; set; }
     }
 }
