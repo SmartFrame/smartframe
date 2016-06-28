@@ -1,6 +1,10 @@
 ﻿using System;
+using System.Reflection;
+using AutoMapper;
+using SmartFrame.Core.Infrastructure.AutoMapper;
 using SmartFrame.Core.Infrastructure.Dependency;
 using SmartFrame.Core.Infrastructure.Dependency.Installers;
+using SmartFrame.Core.Infrastructure.Reflection;
 
 namespace SmartFrame.Core
 {
@@ -44,6 +48,18 @@ namespace SmartFrame.Core
         public virtual void Initialize()
         {
             IocManager.IocContainer.Install(new SmartFrameCoreInstaller());
+
+            var _typeFinder = IocManager.IocContainer.Resolve<ITypeFinder>();
+            var types = _typeFinder.Find(type =>
+               type.IsDefined(typeof(AutoMapAttribute)) ||
+               type.IsDefined(typeof(AutoMapFromAttribute)) ||
+               type.IsDefined(typeof(AutoMapToAttribute))
+               );
+
+            foreach (var type in types)
+            {
+                AutoMapperHelper.CreateMap(type);
+            }
 
             //todo IocManager.Resolve<AbpStartupConfiguration>().Initialize();
 

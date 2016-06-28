@@ -12,6 +12,7 @@ namespace ConsoleApplication1
         static void Main(string[] args)
         {
             SmartFrameBootstrapper bootstrapper = new SmartFrameBootstrapper();
+            bootstrapper.Initialize();
             bootstrapper.IocManager.Register<Interface1, Class1>();
             
             var service = bootstrapper.IocManager.Resolve<Interface1>();
@@ -25,11 +26,40 @@ namespace ConsoleApplication1
             var service1 = bootstrapper.IocManager.Resolve<IPerson>();
             Console.WriteLine(service1.PersonName());
 
-            bootstrapper.IocManager.Register<IAutoMapperObjectMapper, AutoMapperObjectMapper>();
+            
             var service2 = bootstrapper.IocManager.IocContainer.Resolve<IAutoMapperObjectMapper>();
-            Console.WriteLine(service2.MapperTest());
+            Console.WriteLine(service2.Test());
+
+
+            AutoMapperHelper.CreateMap(typeof(MyClass1));
+            AutoMapperHelper.CreateMap(typeof(MyClass2));
+
+
+            MyClass1 obj1 = null;
+            var obj2 = obj1.MapTo<MyClass2>();
+            
+
+
             Console.ReadLine();
 
         }
+    }
+
+
+    [AutoMap(typeof(MyClass2), typeof(MyClass3))]
+    public class MyClass1
+    {
+        public string TestProp { get; set; }
+    }
+
+    [AutoMapTo(typeof(MyClass3))]
+    public class MyClass2
+    {
+        public string TestProp { get; set; }
+    }
+
+    public class MyClass3
+    {
+        public string TestProp { get; set; }
     }
 }

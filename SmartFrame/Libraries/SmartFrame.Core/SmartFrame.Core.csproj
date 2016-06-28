@@ -55,9 +55,16 @@
     <Compile Include="Infrastructure\AutoMapper\AutoMapAttribute.cs" />
     <Compile Include="Infrastructure\AutoMapper\AutoMapDirection.cs" />
     <Compile Include="Infrastructure\AutoMapper\AutoMapExtensions.cs" />
+    <Compile Include="Infrastructure\AutoMapper\AutoMapFromAttribute.cs" />
+    <Compile Include="Infrastructure\AutoMapper\AutoMapperHelper.cs" />
     <Compile Include="Infrastructure\AutoMapper\AutoMapperObjectMapper.cs" />
+    <Compile Include="Infrastructure\AutoMapper\AutoMapToAttribute.cs" />
     <Compile Include="Infrastructure\AutoMapper\IAutoMapperObjectMapper.cs" />
     <Compile Include="Infrastructure\AutoMapper\IObjectMapper.cs" />
+    <Compile Include="Infrastructure\Reflection\CurrentDomainAssemblyFinder.cs" />
+    <Compile Include="Infrastructure\Reflection\IAssemblyFinder.cs" />
+    <Compile Include="Infrastructure\Reflection\TypeFinder.cs" />
+    <Compile Include="Infrastructure\Reflection\ITypeFinder.cs" />
     <Compile Include="SmartFrameBootstrapper.cs" />
     <Compile Include="Infrastructure\Collections\Extensions\CollectionExtensions.cs" />
     <Compile Include="Infrastructure\Collections\Extensions\DictionaryExtensions.cs" />

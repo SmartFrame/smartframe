@@ -26,5 +26,10 @@
         {
             return source.MapTo(destination);
         }
+
+        public string Test()
+        {
+            return "throw new System.NotImplementedException();";
+        }
     }
 }

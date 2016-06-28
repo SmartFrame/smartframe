@@ -1,6 +1,8 @@
 ﻿using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
+using SmartFrame.Core.Infrastructure.AutoMapper;
+using SmartFrame.Core.Infrastructure.Reflection;
 
 namespace SmartFrame.Core.Infrastructure.Dependency.Installers
 {
@@ -23,7 +25,9 @@ namespace SmartFrame.Core.Infrastructure.Dependency.Installers
                 //Component.For<IBackgroundJobConfiguration, BackgroundJobConfiguration>().ImplementedBy<BackgroundJobConfiguration>().LifestyleSingleton(),
                 //Component.For<INotificationConfiguration, NotificationConfiguration>().ImplementedBy<NotificationConfiguration>().LifestyleSingleton(),
                 //Component.For<IAbpStartupConfiguration, AbpStartupConfiguration>().ImplementedBy<AbpStartupConfiguration>().LifestyleSingleton(),
-                //Component.For<ITypeFinder>().ImplementedBy<TypeFinder>().LifestyleSingleton(),
+                Component.For<ITypeFinder>().ImplementedBy<TypeFinder>().LifestyleSingleton(),
+                Component.For<IAutoMapperObjectMapper>().ImplementedBy<AutoMapperObjectMapper>().LifestyleSingleton(),
+                Component.For<IAssemblyFinder>().ImplementedBy<CurrentDomainAssemblyFinder>().LifestyleSingleton()
                 //Component.For<IModuleFinder>().ImplementedBy<DefaultModuleFinder>().LifestyleTransient(),
                 //Component.For<IAbpModuleManager>().ImplementedBy<AbpModuleManager>().LifestyleSingleton(),
                 //Component.For<ILocalizationManager, LocalizationManager>().ImplementedBy<LocalizationManager>().LifestyleSingleton()

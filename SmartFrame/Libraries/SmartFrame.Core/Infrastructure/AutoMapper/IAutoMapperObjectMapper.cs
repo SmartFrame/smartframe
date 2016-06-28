@@ -24,5 +24,7 @@ namespace SmartFrame.Core.Infrastructure.AutoMapper
         /// <param name="destination">Destination object</param>
         /// <returns>Returns the same <see cref="destination"/> object after mapping operation</returns>
         TDestination Map<TSource, TDestination>(TSource source, TDestination destination);
+
+        string Test();
     }
 }
